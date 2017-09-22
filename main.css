@@ -1,0 +1,28 @@
+h1
+{
+
+	background: skyblue;
+	margin-top:2%;
+	margin-left:5%;
+	margin-right:5%;
+	padding:10px;
+	text-align: center;
+	font:helvetica;
+	color: darkblue;
+}
+#square
+{
+	text-align: center;
+	border-width:3px;
+	border:steelblue;
+	float: center;
+	position: relative;
+	background-position: center center;
+	background-size:cover;
+}
+
+body
+{
+	background: steelblue;
+}
+

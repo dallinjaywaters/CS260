@@ -1,0 +1,76 @@
+<HTML>
+<link rel="stylesheet" type = "text/css" href="main.css">
+	<h1>
+	Welcome to Memeory!<br>
+	 Match the memes up to win!
+	</h1>
+<script>
+    var clicks = 0; 
+    var firstchoice;
+    var secondchoice;
+
+    var match = 0; 
+    var backcard = "guess.jpg";
+
+    var faces = []; //array to store card images
+    faces[0] = 'Wonka.jpg';
+    faces[1] = 'Tacos.jpg';
+    faces[2] = 'Ming.jpg';
+    faces[3] = 'Ming.jpg';
+    faces[4] = 'Wonka.jpg';
+    faces[5] = 'Tacos.jpg';
+
+    function choose(card) {
+            if (clicks == 2) {
+                return;
+            }
+            if (clicks == 0) {
+                firstchoice = card;
+                document.images[card].src = faces[card];
+                clicks = 1;
+            } else {
+                clicks = 2;
+                secondchoice = card;
+                document.images[card].src = faces[card];
+                timer = setInterval("check()", 1000);
+            }
+        }
+        /* Check to see if a match is made */
+
+    function check() {
+        clearInterval(timer); //stop timer
+	clicks = 0;
+        if (faces[secondchoice] == faces[firstchoice]) {
+            match++;
+            document.getElementById("matches").innerHTML = match;
+        } else {
+            document.images[firstchoice].src = backcard;
+            document.images[secondchoice].src = backcard;
+            clicks = 0;
+            return;
+        }
+    }
+</script>
+
+<div id="square">
+    <br>
+    <br>
+    <a href="javascript:choose(0)"><img src="guess.jpg" style="width:200px;height:200px;"></a>
+
+    <a href="javascript:choose(1)"><img src="guess.jpg" style="width:200px;height:200px;"></a>
+
+    <a href="javascript:choose(2)"><img src="guess.jpg" style="width:200px;height:200px;"></a>
+
+    <br>
+
+    <a href="javascript:choose(3)"><img src="guess.jpg" style="width:200px;height:200px;"></a>
+
+    <a href="javascript:choose(4)"><img src="guess.jpg" style="width:200px;height:200px;"></a>
+
+    <a href="javascript:choose(5)"><img src="guess.jpg" style="width:200px;height:200px;"></a>
+    
+    </br>
+</div>
+</body>
+</HTML>
+
